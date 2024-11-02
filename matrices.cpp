@@ -134,11 +134,11 @@ void multiplyTwoMatricesInterface(){
     cout << "Insert matrix A: " << endl;
     fillMatrix(matrixA, rowsA, columnsA);
 
-    cout << "InsertDimensions for matrixA: " << endl;
+    cout << "InsertDimensions for matrixB: " << endl;
     cout << "Columns: ";
-    cin >> columnsA;
+    cin >> columnsB;
     cout << "Rows: ";
-    cin >> rowsA;
+    cin >> rowsB;
 
     int** matrixB = declareMatrix(rowsB, columnsB); 
     cout << "Insert matrix B: " << endl;
@@ -150,6 +150,8 @@ void multiplyTwoMatricesInterface(){
         printMatrix(result, rowsA, columnsA);
     } else if(columnsA == rowsB && columnsB == rowsA){
         cout << "using secondary method inclompleted";
+    } else {
+        cout << "Invalid matrices. " << endl;
     }
 
     

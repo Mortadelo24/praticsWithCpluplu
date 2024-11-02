@@ -24,16 +24,23 @@ void sort(int* arr, int size){
 }
 
 int* binarySearch(int* arr, int target, int start , int end){
-    int middleIndex = ceil((end-start)/2);
-    int currentNumber = *(arr+(start+middleIndex));
-    cout << middleIndex << endl << currentNumber << endl;
-    if(currentNumber > target){
-        return binarySearch(arr, target, start, middleIndex-1);
-    }else if(currentNumber < target){
-        return binarySearch(arr, target, middleIndex+1, end);
-    } else if (currentNumber == target){
-        return arr+middleIndex;
+    if (start <= end) {
+        int middleIndex = ceil((end+start)/2);
+        int currentNumber = *(arr+middleIndex);
+
+        cout << "MiddleIndex " << middleIndex << endl;
+        cout << "CurrentNumber " << currentNumber << endl;  
+
+        if (currentNumber == target){
+            return arr+middleIndex;
+        } else if (currentNumber < target){
+            return binarySearch(arr, target, middleIndex+1, end);
+        } else{
+            return binarySearch(arr, target, start, middleIndex-1);
+        }
     }
+    
+
     return nullptr;
 }
 
